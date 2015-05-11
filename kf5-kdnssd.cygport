@@ -1,0 +1,27 @@
+inherit kf5
+
+NAME="kf5-kdnssd"
+VERSION=5.9.0
+RELEASE=1
+CATEGORY="Libs"
+SUMMARY="KDE 5 DNS-SD library"
+DESCRIPTION="KDNSSD is a library for handling the DNS-based Service Discovery
+Protocol (DNS-SD), the layer of Zeroconf that allows network services, such as
+printers, to be discovered without any user intervention or centralized
+infrastructure."
+
+CYGCMAKE_ARGS="-DAVAHI_FOUND=OFF"
+
+PKG_NAMES="libKF5DNSSD5 libKF5DNSSD-devel"
+libKF5DNSSD5_CONTENTS="
+	usr/bin/cygKF5DNSSD-5.dll
+	usr/share/doc/
+	usr/share/locale/
+"
+libKF5DNSSD_devel_REQUIRES="libQt5Core-devel"
+libKF5DNSSD_devel_CONTENTS="
+	usr/include/KF5/KDNSSD/
+	usr/lib/cmake/KF5DNSSD/
+	${QT5_MKSPECSDIR#/}/modules/qt_KDNSSD.pri
+	usr/lib/libKF5DNSSD.dll.a
+"
